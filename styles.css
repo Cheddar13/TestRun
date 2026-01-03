@@ -286,3 +286,76 @@ a:hover{ text-decoration:underline; }
   .grid{ grid-template-columns: 1fr; }
   .tile img{ height: 240px; }
 }
+
+/* ---------- Mobile polish: keep it feeling like desktop ---------- */
+@media (max-width: 900px) {
+
+  /* overall spacing like desktop, just tighter */
+  .wrap {
+    padding: 20px 16px;
+  }
+
+  /* keep header clean */
+  .header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  /* let nav wrap but look intentional */
+  .nav {
+    gap: 8px;
+    justify-content: flex-end;
+  }
+  .nav a {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  /* HERO: force a single column, but keep the “editorial” vibe */
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-top: 22px;
+  }
+
+  /* typography scale down smoothly */
+  .h1 {
+    font-size: 34px;
+    line-height: 1.08;
+    margin-bottom: 10px;
+  }
+  .lede {
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 52ch;
+  }
+
+  /* featured image: make it feel like the same component, not a huge banner */
+  .feature img {
+    height: clamp(240px, 38vh, 360px);
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Portfolio grid: keep 2 columns on phones (more like desktop) */
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .tile img {
+    height: 190px;
+  }
+}
+
+/* very small phones */
+@media (max-width: 420px) {
+  .grid {
+    grid-template-columns: 1fr;  /* 1 column only on tiny screens */
+  }
+  .tile img {
+    height: 220px;
+  }
+}
